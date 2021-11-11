@@ -11,6 +11,7 @@ import { ProductService } from '../product.service';
 export class ProductEditComponent implements OnInit {
 
   @Input() productData:any = {id:null, imgSrc: '', title: '',desc: '' };
+  //khoi tạo
   constructor(public rest: ProductService,private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
@@ -19,7 +20,7 @@ export class ProductEditComponent implements OnInit {
       this.productData = data;
     });
   }
-
+// update product
   updateProduct(): void {
     this.rest.updateProduct(this.route.snapshot.params.id, this.productData).subscribe((result) => {
       this.router.navigate(['/admin-product']);
